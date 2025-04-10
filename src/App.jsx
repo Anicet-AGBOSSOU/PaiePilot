@@ -1,30 +1,40 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./Components/Home";
-import Navbar from "./Components/partials/NavBar";
+import Employe from "./Components/Employe";
+import DFiscale from "./Components/DFiscale";
+import DSociale from "./Components/DSociale";
+import Salaire from "./Components/Salaire";
+import Paie from "./Components/Paie";
+import Inscription from "./Components/Inscription";
+import Connexion from "./Components/Connexion";
+import NavBar from "./Components/partials/NavBar";
 import Footer from "./Components/partials/Footer";
 
 
 function App() {
 
-
   return (
     <Router>
-      <Navbar />
-      <Routes>
-      <Route path="/Home" element={<Home />} />
-      <Route path="/Employe" element={<Employe />} />
-      <Route path="/Fiscale" element={<DFiscale />} />
-      <Route path="/Sociale" element={<DSociale />} />
-      <Route path="/Salaire" element={<Salaire />} />
-      <Route path="/Paie" element={<Paie />} />
-      <Route path="/Log in" element={<Incription />} />
-      <Route path="/Sign in" element={<Connexion />} />
-
-      </Routes>
-      <Footer/>
+      <div className="d-flex flex-column min-vh-100">        
+        <NavBar />
+        <div className="container mt-4">           
+              <Routes>
+                <Route path="/Home" element={<Home />} />
+                <Route path="/gestion-employes" element={<Employe />} />
+                <Route path="/declaration-fiscale" element={<DFiscale />} />
+                <Route path="/declaration-Sociale" element={<DSociale />} />
+                <Route path="/calcul-salaire" element={<Salaire />} />
+                <Route path="/bulletin-paie" element={<Paie />} />
+                <Route path="/inscription" element={<Inscription />} />
+                <Route path="/connexion" element={<Connexion />} />
+              </Routes>
+            
+          
+        </div>
+        <Footer />
+      </div>
     </Router>
   );
 }
-
 export default App;

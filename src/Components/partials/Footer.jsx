@@ -2,11 +2,11 @@ import React from 'react'
 
 function Footer() {
   return (
-    <footer className='text-center mt-2 p-2 bg-dark '>
-      <p className='text-light' style={{fontFamily: "Times New Roman"}} >2025 -Pojet PaiPilot</p>
-       
+    <footer className="bg-light text-center py-3 mt-auto">
+      <div className="container">
+        <p>&copy; {new Date().getFullYear()} PaiePilot. Tous droits réservés.</p>
+      </div>
     </footer>
-  )
+  );
 }
-
 export default Footer

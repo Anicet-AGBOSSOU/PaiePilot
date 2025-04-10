@@ -1,29 +1,75 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.min.css'; // Importing Bootstrap's CSS
+import { NavLink } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 
 
-function Navbar() {
+function NavBar() {
+  const getNavLinkClass = ({ isActive }) =>
+    `nav-link fw-bold ${isActive ? 'text-warning' : 'text-black'}`;
+
   return (
-    <header className= 'd-flex justify-content-between align-items-center pt-2 pt-5 text-light w-auto bg-dark'>
-      <h1 className= 'font-weight-bold ' style={{fontFamily: "Times New Roman"}}>Bookplaces</h1>
-      <nav className= 'd-flex gap-5 ' >
-        <Link className='text-light' style={{fontFamily: "Times New Roman"}} to="/Home">Accueil</Link>
-        <Link className='text-light' style={{fontFamily: "Times New Roman"}} to="/Employe" >Gestion des employés</Link>
-        <Link className='text-light' style={{fontFamily: "Times New Roman"}} to="/Fiscale" >Déclarations Fiscales</Link>
-        <Link className='text-light' style={{fontFamily: "Times New Roman"}} to="/Sociale" >Déclarations Sociales</Link>
-        <Link className='text-light' style={{fontFamily: "Times New Roman"}} to="/Salaire" >Calcul des Salaires</Link>
-        <Link className='text-light' style={{fontFamily: "Times New Roman"}} to="/Paie" >Bulletin de Paie</Link>
-        <Link className='text-light' style={{fontFamily: "Times New Roman"}} to="/Log in" >Inscription</Link>
-        <Link className='text-light' style={{fontFamily: "Times New Roman"}} to="/sign in" >Connexion</Link>
-
-      </nav>
-    </header>
+    <nav className="navbar navbar-expand-lg navbar-dark bg-primary w-100">
+      <div className="container-fluid">
+        <NavLink className="navbar-brand text-warning fw-bold" to="/">
+          PaiePilot
+        </NavLink>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse justify-content-around" id="navbarNav">
+          <ul className="navbar-nav w-100 d-flex justify-content-around">
+            <li className="nav-item">
+              <NavLink to="/Home" className={getNavLinkClass}>Accueil</NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink to="/gestion-employes" className={getNavLinkClass}>
+                Gestion des Employés
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink to="/declaration-fiscale" className={getNavLinkClass}>
+                Déclaration Fiscale
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink to="/declaration-sociale" className={getNavLinkClass}>
+                Déclaration Sociale
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink to="/calcul-salaire" className={getNavLinkClass}>
+                Calcul de Salaire
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink to="/bulletin-paie" className={getNavLinkClass}>
+                Bulletin de Paie
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink to="/inscription" className={getNavLinkClass}>
+                Inscription
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink to="/connexion" className={getNavLinkClass}>
+                Connexion
+              </NavLink>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
   );
 }
 
-
-
-
-export default Navbar;
+  export default NavBar;
