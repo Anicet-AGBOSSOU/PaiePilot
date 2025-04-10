@@ -10,15 +10,16 @@ import Inscription from "./Components/Inscription";
 import Connexion from "./Components/Connexion";
 import NavBar from "./Components/partials/NavBar";
 import Footer from "./Components/partials/Footer";
-
+//import SideBar from "./Components/partials/SideBar";
 
 function App() {
 
   return (
     <Router>
       <div className="d-flex flex-column min-vh-100">        
-        <NavBar />
-        <div className="container mt-4">           
+      <NavBar />
+      {/* <SideBar /> */}
+      <div className="container mt-4">           
               <Routes>
                 <Route path="/Home" element={<Home />} />
                 <Route path="/gestion-employes" element={<Employe />} />

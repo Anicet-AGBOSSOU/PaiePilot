@@ -1,14 +1,6 @@
 import React, { useState } from "react";
 import App from "../App";
-import {
-	Container,
-	Row,
-	Col,
-	Form as BootstrapForm,
-	Button,
-	Card,
-	Alert,
-} from "react-bootstrap";
+import {Container,Row,Col,Form as BootstrapForm,Button,Card,Alert,} from "react-bootstrap";
 
 
 const Inscription = () => {
@@ -17,7 +9,6 @@ const Inscription = () => {
 		lastName: "",
 		email: "",
 		phone: "",
-		message: "",
 		subscription: false,
 	});
 
@@ -58,15 +49,14 @@ const Inscription = () => {
 				lastName: "",
 				email: "",
 				phone: "",
-				message: "",
 				subscription: false,
 			});
 			setValidated(false);
 
-			// Hide alert after 5 seconds
+			// Hide alert after 3 seconds
 			setTimeout(() => {
 				setShowAlert(false);
-			}, 5000);
+			}, 3000);
 		}, 1000);
 	};
 
@@ -76,7 +66,7 @@ const Inscription = () => {
 				<Col md={10} lg={8}>
 					<Card className="shadow-sm border-0">
 						<Card.Header className="bg-primary text-white py-3">
-							<h2 className="h4 mb-0 text-center">Formulaire de contact</h2>
+							<h2 className="h4 mb-0 text-center">Formulaire d'inscription</h2>
 						</Card.Header>
 						<Card.Body className="p-4">
 							{showAlert && (
@@ -103,11 +93,11 @@ const Inscription = () => {
 												name="firstName"
 												value={formData.firstName}
 												onChange={handleChange}
-												placeholder="Entrez votre prénom"
+												placeholder="Ex: Anicet"
 												required
 											/>
 											<BootstrapForm.Control.Feedback type="invalid">
-												Veuillez entrer votre prénom.
+												Veuillez entrer votre prénom s'il vous plaît
 											</BootstrapForm.Control.Feedback>
 										</BootstrapForm.Group>
 									</Col>
@@ -120,11 +110,11 @@ const Inscription = () => {
 												name="lastName"
 												value={formData.lastName}
 												onChange={handleChange}
-												placeholder="Entrez votre nom"
+												placeholder="Ex: AGBOSSOU"
 												required
 											/>
 											<BootstrapForm.Control.Feedback type="invalid">
-												Veuillez entrer votre nom.
+												Veuillez entrer votre nom s'il vous plaît
 											</BootstrapForm.Control.Feedback>
 										</BootstrapForm.Group>
 									</Col>
@@ -139,11 +129,11 @@ const Inscription = () => {
 												name="email"
 												value={formData.email}
 												onChange={handleChange}
-												placeholder="Entrez votre email"
+												placeholder="Ex: jeanpierre@gmail.com"
 												required
 											/>
 											<BootstrapForm.Control.Feedback type="invalid">
-												Veuillez entrer un email valide.
+												Veuillez entrer un email valide s'il vous plaît
 											</BootstrapForm.Control.Feedback>
 										</BootstrapForm.Group>
 									</Col>
@@ -156,27 +146,11 @@ const Inscription = () => {
 												name="phone"
 												value={formData.phone}
 												onChange={handleChange}
-												placeholder="Entrez votre numéro de téléphone"
+												placeholder="Ex: 0100000000 "
 											/>
 										</BootstrapForm.Group>
 									</Col>
 								</Row>
-
-								<BootstrapForm.Group className="mb-3" controlId="message">
-									<BootstrapForm.Label>Message</BootstrapForm.Label>
-									<BootstrapForm.Control
-										as="textarea"
-										name="message"
-										value={formData.message}
-										onChange={handleChange}
-										rows={5}
-										placeholder="Écrivez votre message ici..."
-										required
-									/>
-									<BootstrapForm.Control.Feedback type="invalid">
-										Veuillez entrer un message.
-									</BootstrapForm.Control.Feedback>
-								</BootstrapForm.Group>
 
 								<BootstrapForm.Group className="mb-3" controlId="subscription">
 									<BootstrapForm.Check

@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 function NavBar() {
   const getNavLinkClass = ({ isActive }) =>
-    `nav-link fw-bold ${isActive ? 'text-warning' : 'text-black'}`;
+    `nav-link fw-bold ${isActive ? 'text-warning' : 'text-white'}`;
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary w-100">
