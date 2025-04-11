@@ -28,9 +28,6 @@ function NavBar() {
         <div className="collapse navbar-collapse justify-content-around" id="navbarNav">
           <ul className="navbar-nav w-100 d-flex justify-content-around">
             <li className="nav-item">
-              <NavLink to="/Home" className={getNavLinkClass}>Accueil</NavLink>
-            </li>
-            <li className="nav-item">
               <NavLink to="/gestion-employes" className={getNavLinkClass}>
                 Gestion des Employés
               </NavLink>
@@ -63,6 +60,11 @@ function NavBar() {
             <li className="nav-item">
               <NavLink to="/connexion" className={getNavLinkClass}>
                 Connexion
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink to="/about" className={getNavLinkClass}>
+                À-Propos
               </NavLink>
             </li>
           </ul>

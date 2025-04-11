@@ -7,7 +7,7 @@ function SideBar() {
       <aside className="bg-light p-3"> 
         <ul className="nav flex-column"> 
           <li className="nav-item">
-            <Link className="nav-link active" aria-current="page" to="/Home">Accueil</Link>
+            {/* <Link className="nav-link active" aria-current="page" to="/Home">Accueil</Link> */}
           </li>
           <li className="nav-item">
             <Link className="nav-link" to="/gestion-employes">Gestion des Employés</Link>

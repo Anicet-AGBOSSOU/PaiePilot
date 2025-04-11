@@ -10,7 +10,9 @@ import Inscription from "./Components/Inscription";
 import Connexion from "./Components/Connexion";
 import NavBar from "./Components/partials/NavBar";
 import Footer from "./Components/partials/Footer";
-//import SideBar from "./Components/partials/SideBar";
+import About from "./Components/About";
+import NotFound from "./Components/NotFound";
+// import SideBar from "./Components/partials/SideBar";
 
 function App() {
 
@@ -21,7 +23,7 @@ function App() {
       {/* <SideBar /> */}
       <div className="container mt-4">           
               <Routes>
-                <Route path="/Home" element={<Home />} />
+                <Route path="/" element={<Home />} />
                 <Route path="/gestion-employes" element={<Employe />} />
                 <Route path="/declaration-fiscale" element={<DFiscale />} />
                 <Route path="/declaration-Sociale" element={<DSociale />} />
@@ -29,6 +31,10 @@ function App() {
                 <Route path="/bulletin-paie" element={<Paie />} />
                 <Route path="/inscription" element={<Inscription />} />
                 <Route path="/connexion" element={<Connexion />} />
+                <Route path="/about" element={<About />} />
+
+                <Route path="*" element={<NotFound />} />
+
               </Routes>
             
           
