@@ -34,14 +34,14 @@ function NavBar() {
             </li>
             <li className="nav-item">
               <NavLink to="/declaration-fiscale" className={getNavLinkClass}>
-                Déclaration Fiscale
+                Déclarations Fiscales et sociales
               </NavLink>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <NavLink to="/declaration-sociale" className={getNavLinkClass}>
                 Déclaration Sociale
               </NavLink>
-            </li>
+            </li> */}
             <li className="nav-item">
               <NavLink to="/calcul-salaire" className={getNavLinkClass}>
                 Calcul de Salaire
@@ -52,21 +52,21 @@ function NavBar() {
                 Bulletin de Paie
               </NavLink>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <NavLink to="/inscription" className={getNavLinkClass}>
                 Inscription
               </NavLink>
-            </li>
+            </li> */}
             <li className="nav-item">
               <NavLink to="/connexion" className={getNavLinkClass}>
                 Connexion
               </NavLink>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <NavLink to="/about" className={getNavLinkClass}>
                 À-Propos
               </NavLink>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>
