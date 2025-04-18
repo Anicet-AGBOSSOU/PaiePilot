@@ -10,7 +10,7 @@ function Connexion() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3001/api/auth/login', {
+      const response = await axios.post('https://paie-pilot-2.onrender.com/api/auth/login', {
         email,
         password: motDePasse,
       });

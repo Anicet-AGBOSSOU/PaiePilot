@@ -6,7 +6,7 @@ function Dashboard() {
   return (
     <div className="d-flex">
       {/* Sidebar */}
-      <div className="bg-dark text-white p-3 vh-100" style={{ width: '250px' }}>
+      <div className="bg-primary text-white p-3 vh-100" style={{ width: '200px' }}>
         <h4 className="mb-4 text-center">Tableau de Bord</h4>
         <ul className="nav flex-column">
           <li className="nav-item mb-2">

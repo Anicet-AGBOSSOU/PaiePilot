@@ -46,7 +46,7 @@ function Inscription() {
         contactPersonPhone: formData.telephonePersonneContact,
       };
 
-      const response = await axios.post('http://localhost:3001/api/auth/register', payload);
+      const response = await axios.post('https://paie-pilot-2.onrender.com/api/auth/register', payload);
       alert('Inscription réussie !');
       navigate('/connexion');
     } catch (error) {
