@@ -52,16 +52,23 @@ function NavBar() {
                 Bulletin de Paie
               </NavLink>
             </li>
-            {/* <li className="nav-item">
+            <li className="nav-item">
               <NavLink to="/inscription" className={getNavLinkClass}>
                 Inscription
               </NavLink>
-            </li> */}
+            </li>
             <li className="nav-item">
               <NavLink to="/connexion" className={getNavLinkClass}>
                 Connexion
               </NavLink>
             </li>
+
+            <li className="nav-item">
+              <NavLink to="/dashboard" className={getNavLinkClass}>
+                Tableau de Bord
+              </NavLink>
+            </li>
+
             {/* <li className="nav-item">
               <NavLink to="/about" className={getNavLinkClass}>
                 À-Propos

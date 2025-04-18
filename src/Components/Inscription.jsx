@@ -1,181 +1,127 @@
-import React, { useState } from "react";
-import App from "../App";
-import {Container,Row,Col,Form as BootstrapForm,Button,Card,Alert,} from "react-bootstrap";
+import React, { useState } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
+function Inscription() {
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    nomEntreprise: '',
+    emailEntreprise: '',
+    motDePasse: '',
+    numeroTelephone: '',
+    adresse: '',
+    numeroImmatriculation: '',
+    numeroIdentificationFiscale: '',
+    formeJuridique: '',
+    secteurActivite: '',
+    siteWeb: '',
+    nomPersonneContact: '',
+    emailPersonneContact: '',
+    telephonePersonneContact: '',
+  });
 
-const Inscription = () => {
-	const [formData, setFormData] = useState({
-		firstName: "",
-		lastName: "",
-		email: "",
-		phone: "",
-		subscription: false,
-	});
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
 
-	const [validated, setValidated] = useState(false);
-	const [showAlert, setShowAlert] = useState(false);
-	const [alertType, setAlertType] = useState("success");
-	const [alertMessage, setAlertMessage] = useState("");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const payload = {
+        companyName: formData.nomEntreprise,
+        companyEmail: formData.emailEntreprise,
+        password: formData.motDePasse,
+        phoneNumber: formData.numeroTelephone,
+        address: formData.adresse,
+        registrationNumber: formData.numeroImmatriculation,
+        taxIdentificationNumber: formData.numeroIdentificationFiscale,
+        legalForm: formData.formeJuridique,
+        sectorOfActivity: formData.secteurActivite,
+        website: formData.siteWeb,
+        contactPersonName: formData.nomPersonneContact,
+        contactPersonEmail: formData.emailPersonneContact,
+        contactPersonPhone: formData.telephonePersonneContact,
+      };
 
-	const handleChange = (e) => {
-		const { name, value, type, checked } = e.target;
-		setFormData({
-			...formData,
-			[name]: type === "checkbox" ? checked : value,
-		});
-	};
+      const response = await axios.post('http://localhost:3001/api/auth/register', payload);
+      alert('Inscription réussie !');
+      navigate('/connexion');
+    } catch (error) {
+      alert("Erreur lors de l'inscription : " + error.response?.data?.message || error.message);
+    }
+  };
 
-	const handleSubmit = (e) => {
-		e.preventDefault();
-		const form = e.currentTarget;
-
-		if (form.checkValidity() === false) {
-			e.stopPropagation();
-			setValidated(true);
-			return;
-		}
-
-		setValidated(true);
-
-		// Simulate form submission
-		setTimeout(() => {
-			setAlertType("success");
-			setAlertMessage("Formulaire envoyé avec succès!");
-			setShowAlert(true);
-
-			// Reset form after successful submission
-			setFormData({
-				firstName: "",
-				lastName: "",
-				email: "",
-				phone: "",
-				subscription: false,
-			});
-			setValidated(false);
-
-			// Hide alert after 3 seconds
-			setTimeout(() => {
-				setShowAlert(false);
-			}, 3000);
-		}, 1000);
-	};
-
-	return (
-		<Container className="py-5">
-			<Row className="justify-content-center">
-				<Col md={10} lg={8}>
-					<Card className="shadow-sm border-0">
-						<Card.Header className="bg-primary text-white py-3">
-							<h2 className="h4 mb-0 text-center">Formulaire d'inscription</h2>
-						</Card.Header>
-						<Card.Body className="p-4">
-							{showAlert && (
-								<Alert
-									variant={alertType}
-									onClose={() => setShowAlert(false)}
-									dismissible
-								>
-									{alertMessage}
-								</Alert>
-							)}
-
-							<BootstrapForm
-								noValidate
-								validated={validated}
-								onSubmit={handleSubmit}
-							>
-								<Row>
-									<Col md={6} className="mb-3">
-										<BootstrapForm.Group controlId="firstName">
-											<BootstrapForm.Label>Prénom</BootstrapForm.Label>
-											<BootstrapForm.Control
-												type="text"
-												name="firstName"
-												value={formData.firstName}
-												onChange={handleChange}
-												placeholder="Ex: Anicet"
-												required
-											/>
-											<BootstrapForm.Control.Feedback type="invalid">
-												Veuillez entrer votre prénom s'il vous plaît
-											</BootstrapForm.Control.Feedback>
-										</BootstrapForm.Group>
-									</Col>
-
-									<Col md={6} className="mb-3">
-										<BootstrapForm.Group controlId="lastName">
-											<BootstrapForm.Label>Nom</BootstrapForm.Label>
-											<BootstrapForm.Control
-												type="text"
-												name="lastName"
-												value={formData.lastName}
-												onChange={handleChange}
-												placeholder="Ex: AGBOSSOU"
-												required
-											/>
-											<BootstrapForm.Control.Feedback type="invalid">
-												Veuillez entrer votre nom s'il vous plaît
-											</BootstrapForm.Control.Feedback>
-										</BootstrapForm.Group>
-									</Col>
-								</Row>
-
-								<Row>
-									<Col md={6} className="mb-3">
-										<BootstrapForm.Group controlId="email">
-											<BootstrapForm.Label>Email</BootstrapForm.Label>
-											<BootstrapForm.Control
-												type="email"
-												name="email"
-												value={formData.email}
-												onChange={handleChange}
-												placeholder="Ex: jeanpierre@gmail.com"
-												required
-											/>
-											<BootstrapForm.Control.Feedback type="invalid">
-												Veuillez entrer un email valide s'il vous plaît
-											</BootstrapForm.Control.Feedback>
-										</BootstrapForm.Group>
-									</Col>
-
-									<Col md={6} className="mb-3">
-										<BootstrapForm.Group controlId="phone">
-											<BootstrapForm.Label>Téléphone</BootstrapForm.Label>
-											<BootstrapForm.Control
-												type="tel"
-												name="phone"
-												value={formData.phone}
-												onChange={handleChange}
-												placeholder="Ex: 0100000000 "
-											/>
-										</BootstrapForm.Group>
-									</Col>
-								</Row>
-
-								<BootstrapForm.Group className="mb-3" controlId="subscription">
-									<BootstrapForm.Check
-										type="checkbox"
-										name="subscription"
-										label="Je souhaite recevoir la newsletter"
-										checked={formData.subscription}
-										onChange={handleChange}
-									/>
-								</BootstrapForm.Group>
-
-								<div className="d-grid gap-2">
-									<Button variant="primary" type="submit" size="lg">
-										Envoyer
-									</Button>
-								</div>
-							</BootstrapForm>
-						</Card.Body>
-					</Card>
-				</Col>
-			</Row>
-		</Container>
-	);
-};
+  return (
+    <div className="container py-5">
+      <div className="row justify-content-center">
+        <div className="col-lg-8">
+          <div className="p-4 shadow rounded bg-white">
+            <h3 className="text-center mb-4">Inscription</h3>
+            <form onSubmit={handleSubmit}>
+              <div className="row">
+                <div className="mb-3 col-md-6">
+                  <label className="form-label">Nom de l'entreprise</label>
+                  <input type="text" className="form-control" name="nomEntreprise" value={formData.nomEntreprise} onChange={handleChange} required />
+                </div>
+                <div className="mb-3 col-md-6">
+                  <label className="form-label">Adresse e-mail</label>
+                  <input type="email" className="form-control" name="emailEntreprise" value={formData.emailEntreprise} onChange={handleChange} required />
+                </div>
+                <div className="mb-3 col-md-6">
+                  <label className="form-label">Mot de passe</label>
+                  <input type="password" className="form-control" name="motDePasse" value={formData.motDePasse} onChange={handleChange} required />
+                </div>
+                <div className="mb-3 col-md-6">
+                  <label className="form-label">Téléphone</label>
+                  <input type="text" className="form-control" name="numeroTelephone" value={formData.numeroTelephone} onChange={handleChange} required />
+                </div>
+                <div className="mb-3 col-md-6">
+                  <label className="form-label">Adresse</label>
+                  <input type="text" className="form-control" name="adresse" value={formData.adresse} onChange={handleChange} required />
+                </div>
+                <div className="mb-3 col-md-6">
+                  <label className="form-label">Numéro d'immatriculation</label>
+                  <input type="text" className="form-control" name="numeroImmatriculation" value={formData.numeroImmatriculation} onChange={handleChange} required />
+                </div>
+                <div className="mb-3 col-md-6">
+                  <label className="form-label">Numéro d'identification fiscale</label>
+                  <input type="text" className="form-control" name="numeroIdentificationFiscale" value={formData.numeroIdentificationFiscale} onChange={handleChange} required />
+                </div>
+                <div className="mb-3 col-md-6">
+                  <label className="form-label">Forme juridique</label>
+                  <input type="text" className="form-control" name="formeJuridique" value={formData.formeJuridique} onChange={handleChange} required />
+                </div>
+                <div className="mb-3 col-md-6">
+                  <label className="form-label">Secteur d'activité</label>
+                  <input type="text" className="form-control" name="secteurActivite" value={formData.secteurActivite} onChange={handleChange} required />
+                </div>
+                <div className="mb-3 col-md-6">
+                  <label className="form-label">Site web</label>
+                  <input type="text" className="form-control" name="siteWeb" value={formData.siteWeb} onChange={handleChange} />
+                </div>
+                <div className="mb-3 col-md-6">
+                  <label className="form-label">Nom de la personne de contact</label>
+                  <input type="text" className="form-control" name="nomPersonneContact" value={formData.nomPersonneContact} onChange={handleChange} required />
+                </div>
+                <div className="mb-3 col-md-6">
+                  <label className="form-label">Email de la personne de contact</label>
+                  <input type="email" className="form-control" name="emailPersonneContact" value={formData.emailPersonneContact} onChange={handleChange} required />
+                </div>
+                <div className="mb-3 col-md-6">
+                  <label className="form-label">Téléphone de la personne de contact</label>
+                  <input type="text" className="form-control" name="telephonePersonneContact" value={formData.telephonePersonneContact} onChange={handleChange} required />
+                </div>
+              </div>
+              <button type="submit" className="btn btn-success w-100">S'inscrire</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default Inscription;
-
-

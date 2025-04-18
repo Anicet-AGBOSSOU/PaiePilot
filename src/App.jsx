@@ -12,6 +12,7 @@ import NavBar from "./Components/partials/NavBar";
 import Footer from "./Components/partials/Footer";
 import About from "./Components/About";
 import NotFound from "./Components/NotFound";
+import Dashboard from "./Components/Dashboard";
 // import SideBar from "./Components/partials/SideBar";
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
                 <Route path="/bulletin-paie" element={<Paie />} />
                 <Route path="/inscription" element={<Inscription />} />
                 <Route path="/connexion" element={<Connexion />} />
+                <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/about" element={<About />} />
 
                 <Route path="*" element={<NotFound />} />
