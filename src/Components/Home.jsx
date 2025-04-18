@@ -1,61 +1,90 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useState } from 'react';
-import { useEffect } from 'react';
-
+import { Link } from 'react-router-dom';
 
 function Home() {
-    return (
-  <> 
-      
-    <div className="container py-5 accueil-container">
-    <h1 className="text-center">Bienvenu sur notre site Web PaiePilot!!!</h1>
-    <p className="subtitle text-center">Votre destination pour un bon suivi sur les réglementations fiscales et sociales Béninoises </p>
-  
-    <main className="accueil-main">
-      <section className="featured-content mb-5">
-        <h2 className="text-center">Découvrez nos fonctionnalités principales</h2>
-        <ul className="list-group">
-          <li className="list-group-item"><strong>Fonctionnalité 1 :</strong> Explorer la fiscalité Béninoise</li>
-          <li className="list-group-item"><strong>Fonctionnalité 2 :</strong> Comprendre les différents types de déclarations</li>
-          <li className="list-group-item"><strong>Fonctionnalité 3 :</strong> Savoir se mettre à jour au regard du fisc</li>
-        </ul>
-      </section>
-  
-      <section className="call-to-action text-center mb-5">
-        <p><strong>Prêt à commencer ???</strong></p>
-        <button className="btn btn-primary mx-2"><strong>Se connecter</strong></button>
-        <button className="btn btn-success mx-2"><strong>S'inscrire</strong></button>
-        <button className="btn btn-info mx-2"><strong>En savoir plus</strong></button>
-      </section>
-  
-      <section className="pourquoi-nous-choisir mb-5">
-        <h2 className="text-center">Pourquoi choisir PaiePilot</h2>
-        <ul className="list-group">
-          <li className="list-group-item">Avantage clé 1</li>
-          <li className="list-group-item">Avantage clé 2</li>
-          <li className="list-group-item">Avantage clé 3</li>
-        </ul>
-      </section>
-  
-      <section className="temoignages mb-5">
-        <h2 className="text-center">Ce que disent nos utilisateurs</h2>
-        <div className="temoignage text-center">
-          <p>[PaiePilot m'a aidé à développer des compétences nécessaires pour me conformer à la réglementation Béninoise . Je vous le recommande vivement]</p>
-          <cite>Jean</cite>
+  return (
+    <div className="container py-5">
+      <header className="text-center mb-5">
+        <h1 className="text-primary">Bienvenue sur PaiePilot</h1>
+        <p className="lead">La solution de gestion de paie adaptée aux PME et PMI au Bénin</p>
+        <div className="mt-4">
+          <Link to="/inscription" className="btn btn-success me-3">S'inscrire</Link>
+          <Link to="/connexion" className="btn btn-outline-primary">Se connecter</Link>
+        </div>
+      </header>
+
+      <section className="mb-5">
+        <h2 className="text-center text-secondary mb-4">À propos de la fiscalité béninoise</h2>
+        <div className="row g-4">
+          <div className="col-md-6">
+            <div className="p-4 shadow rounded bg-white h-100">
+              <h5 className="text-success">ITS (Impôt sur Traitement et Salaire)</h5>
+              <p>L’ITS est un impôt prélevé sur les salaires versés aux employés. Il est retenu à la source par l’employeur.</p>
+            </div>
+          </div>
+          <div className="col-md-6">
+            <div className="p-4 shadow rounded bg-white h-100">
+              <h5 className="text-success">VPS (Versement Patronal sur Salaire)</h5>
+              <p>Le VPS est une contribution patronale sur les salaires, destinée au financement de la protection sociale.</p>
+            </div>
+          </div>
+          <div className="col-md-6">
+            <div className="p-4 shadow rounded bg-white h-100">
+              <h5 className="text-success">CO (Cotisation Ouvrière)</h5>
+              <p>La CO est la part des cotisations sociales prélevée sur le salaire brut de l’employé pour les prestations sociales.</p>
+            </div>
+          </div>
+          <div className="col-md-6">
+            <div className="p-4 shadow rounded bg-white h-100">
+              <h5 className="text-success">CPS (Cotisation Patronale sur Salaire)</h5>
+              <p>La CPS est la part versée par l’employeur aux organismes sociaux pour couvrir les charges liées au personnel.</p>
+            </div>
+          </div>
         </div>
       </section>
-  
-      <section className="appel-final text-center mb-5">
-        <h2>Prêt à découvrir PaiePilot ?</h2>
-        <p>N'attendez plus et rejoingnez notre communauté</p>
-        <button className="cta-primary btn btn-warning">S'inscrire</button>
+
+      <section className="mb-5">
+        <h2 className="text-center text-secondary mb-4">Pourquoi choisir PaiePilot ?</h2>
+        <div id="paiePilotCarousel" className="carousel slide shadow rounded overflow-hidden" data-bs-ride="carousel">
+          <div className="carousel-inner">
+            <div className="carousel-item active bg-light p-5">
+              <div className="d-flex flex-column align-items-center">
+                <h4 className="text-success mb-3">Conformité Fiscale Totale</h4>
+                <p className="text-center text-muted w-75">
+                  PaiePilot vous aide à gérer les obligations fiscales locales comme l’ITS, VPS, CO, CPS avec précision.
+                </p>
+              </div>
+            </div>
+            <div className="carousel-item bg-light p-5">
+              <div className="d-flex flex-column align-items-center">
+                <h4 className="text-success mb-3">Simplicité d’utilisation</h4>
+                <p className="text-center text-muted w-75">
+                  Une interface intuitive pensée pour les dirigeants de PME sans besoin de compétences techniques.
+                </p>
+              </div>
+            </div>
+            <div className="carousel-item bg-light p-5">
+              <div className="d-flex flex-column align-items-center">
+                <h4 className="text-success mb-3">Gain de temps et fiabilité</h4>
+                <p className="text-center text-muted w-75">
+                  Automatisez le calcul des cotisations, les déclarations mensuelles, et réduisez les erreurs humaines.
+                </p>
+              </div>
+            </div>
+          </div>
+          <button className="carousel-control-prev" type="button" data-bs-target="#paiePilotCarousel" data-bs-slide="prev">
+            <span className="carousel-control-prev-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
+            <span className="visually-hidden">Précédent</span>
+          </button>
+          <button className="carousel-control-next" type="button" data-bs-target="#paiePilotCarousel" data-bs-slide="next">
+            <span className="carousel-control-next-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
+            <span className="visually-hidden">Suivant</span>
+          </button>
+        </div>
       </section>
-    </main>
-  </div>
-  
-  </>
-    )
-  }
-  
-  export default Home;
+    </div>
+  );
+}
+
+export default Home;

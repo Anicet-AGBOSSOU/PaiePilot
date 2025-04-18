@@ -1,80 +1,61 @@
 import React, { useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css'; 
+import axios from 'axios';
+import { useNavigate, Link } from 'react-router-dom';
 
-const Connexion = () => {
+function Connexion() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [motDePasse, setMotDePasse] = useState('');
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    setError('');
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     try {
-      // Simuler un appel à une API de connexion (à remplacer plutard)
-      const response = await new Promise((resolve, reject) => {
-        setTimeout(() => {
-          if (email === 'test@example.com' && password === 'password') {
-            resolve({ success: true, message: 'Connexion réussie!' });
-
-            // Stocker le token et rediriger l'utilisateur
-          } else {
-            reject({ success: false, message: 'Email ou mot de passe incorrect.' });
-          }
-        }, 1000);
+      const response = await axios.post('http://localhost:3001/api/auth/login', {
+        email,
+        password: motDePasse,
       });
-
-      console.log('Réponse de la connexion:', response);
-      if (response.success) {
-        alert(response.message);
-        // Redirection de l'utilisateur vers la page des livres/auteurs, etc.
-        // history.push('/livres');
-      }
-    } catch (err) {
-      setError(err.message || 'Erreur lors de la connexion.');
+      alert('Connexion réussie !');
+      // Rediriger selon le besoin
+      navigate('/dashboard');
+    } catch (error) {
+      alert("Erreur lors de la connexion : " + (error.response?.data?.message || error.message));
     }
   };
 
   return (
-    <div className="container d-flex justify-content-center align-items-center vh-100 bg-light">
-      <div className="card shadow-lg p-4 rounded" style={{ maxWidth: '400px', width: '100%' }}>
-        <div className="card-body">
-          <h2 className="card-title text-center mb-4">Connexion</h2>
-          {error && <div className="alert alert-danger">{error}</div>}
-          <form onSubmit={handleSubmit}>
-            <div className="mb-3">
-              <label htmlFor="email" className="form-label">Email</label>
-              <input
-                type="email"
-                className="form-control"
-                id="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="password" className="form-label">Mot de passe</label>
-              <input
-                type="password"
-                className="form-control"
-                id="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
-            </div>
-            <div className="d-grid">
-              <button type="submit" className="btn btn-primary">Se connecter</button>
-            </div>
-          </form>
-          <div className="mt-3 text-center">
-            <p className="mb-0">Pas de compte? <a href="/Inscription">S'inscrire</a></p>
+    <div className="d-flex justify-content-center align-items-center vh-100 bg-light">
+      <div className="col-md-4 p-4 shadow rounded bg-white">
+        <h3 className="text-center mb-4">Connexion</h3>
+        <form onSubmit={handleSubmit}>
+          <div className="mb-3">
+            <label className="form-label">Adresse e-mail</label>
+            <input
+              type="email"
+              className="form-control"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
           </div>
+          <div className="mb-3">
+            <label className="form-label">Mot de passe</label>
+            <input
+              type="password"
+              className="form-control"
+              value={motDePasse}
+              onChange={(e) => setMotDePasse(e.target.value)}
+              required
+            />
+          </div>
+          <button type="submit" className="btn btn-primary w-100">Se connecter</button>
+        </form>
+        <div className="text-center mt-3">
+          <span>Pas encore de compte ? </span>
+          <Link to="/inscription">S'inscrire</Link>
         </div>
       </div>
     </div>
   );
-};
+}
 
 export default Connexion;
-
