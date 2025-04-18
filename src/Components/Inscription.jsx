@@ -76,27 +76,27 @@ function Inscription() {
                 </div>
                 <div className="mb-3 col-md-6">
                   <label className="form-label">Téléphone</label>
-                  <input type="text" className="form-control" name="numeroTelephone" value={formData.numeroTelephone} onChange={handleChange} required />
+                  <input type="text" className="form-control" name="numeroTelephone" value={formData.numeroTelephone} onChange={handleChange}  />
                 </div>
                 <div className="mb-3 col-md-6">
                   <label className="form-label">Adresse</label>
-                  <input type="text" className="form-control" name="adresse" value={formData.adresse} onChange={handleChange} required />
+                  <input type="text" className="form-control" name="adresse" value={formData.adresse} onChange={handleChange}  />
                 </div>
                 <div className="mb-3 col-md-6">
                   <label className="form-label">Numéro d'immatriculation</label>
-                  <input type="text" className="form-control" name="numeroImmatriculation" value={formData.numeroImmatriculation} onChange={handleChange} required />
+                  <input type="text" className="form-control" name="numeroImmatriculation" value={formData.numeroImmatriculation} onChange={handleChange} />
                 </div>
                 <div className="mb-3 col-md-6">
                   <label className="form-label">Numéro d'identification fiscale</label>
-                  <input type="text" className="form-control" name="numeroIdentificationFiscale" value={formData.numeroIdentificationFiscale} onChange={handleChange} required />
+                  <input type="text" className="form-control" name="numeroIdentificationFiscale" value={formData.numeroIdentificationFiscale} onChange={handleChange}  />
                 </div>
                 <div className="mb-3 col-md-6">
                   <label className="form-label">Forme juridique</label>
-                  <input type="text" className="form-control" name="formeJuridique" value={formData.formeJuridique} onChange={handleChange} required />
+                  <input type="text" className="form-control" name="formeJuridique" value={formData.formeJuridique} onChange={handleChange}  />
                 </div>
                 <div className="mb-3 col-md-6">
                   <label className="form-label">Secteur d'activité</label>
-                  <input type="text" className="form-control" name="secteurActivite" value={formData.secteurActivite} onChange={handleChange} required />
+                  <input type="text" className="form-control" name="secteurActivite" value={formData.secteurActivite} onChange={handleChange}  />
                 </div>
                 <div className="mb-3 col-md-6">
                   <label className="form-label">Site web</label>
@@ -104,15 +104,15 @@ function Inscription() {
                 </div>
                 <div className="mb-3 col-md-6">
                   <label className="form-label">Nom de la personne de contact</label>
-                  <input type="text" className="form-control" name="nomPersonneContact" value={formData.nomPersonneContact} onChange={handleChange} required />
+                  <input type="text" className="form-control" name="nomPersonneContact" value={formData.nomPersonneContact} onChange={handleChange}  />
                 </div>
                 <div className="mb-3 col-md-6">
                   <label className="form-label">Email de la personne de contact</label>
-                  <input type="email" className="form-control" name="emailPersonneContact" value={formData.emailPersonneContact} onChange={handleChange} required />
+                  <input type="email" className="form-control" name="emailPersonneContact" value={formData.emailPersonneContact} onChange={handleChange} />
                 </div>
                 <div className="mb-3 col-md-6">
                   <label className="form-label">Téléphone de la personne de contact</label>
-                  <input type="text" className="form-control" name="telephonePersonneContact" value={formData.telephonePersonneContact} onChange={handleChange} required />
+                  <input type="text" className="form-control" name="telephonePersonneContact" value={formData.telephonePersonneContact} onChange={handleChange}  />
                 </div>
               </div>
               <button type="submit" className="btn btn-success w-100">S'inscrire</button>

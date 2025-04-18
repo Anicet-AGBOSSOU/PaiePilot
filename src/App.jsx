@@ -13,6 +13,7 @@ import Footer from "./Components/partials/Footer";
 import About from "./Components/About";
 import NotFound from "./Components/NotFound";
 import Dashboard from "./Components/Dashboard";
+import Setting from "./Components/Setting";
 // import SideBar from "./Components/partials/SideBar";
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
                 <Route path="/connexion" element={<Connexion />} />
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/about" element={<About />} />
+                <Route path="/setting" element={<Setting />} />
 
                 <Route path="*" element={<NotFound />} />
 

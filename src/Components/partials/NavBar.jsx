@@ -27,7 +27,7 @@ function NavBar() {
         </button>
         <div className="collapse navbar-collapse justify-content-around" id="navbarNav">
           <ul className="navbar-nav w-100 d-flex justify-content-around">
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <NavLink to="/gestion-employes" className={getNavLinkClass}>
                 Gestion des Employés
               </NavLink>
@@ -36,17 +36,17 @@ function NavBar() {
               <NavLink to="/declaration-fiscale" className={getNavLinkClass}>
                 Déclarations Fiscales et sociales
               </NavLink>
-            </li>
+            </li> */}
             {/* <li className="nav-item">
               <NavLink to="/declaration-sociale" className={getNavLinkClass}>
                 Déclaration Sociale
               </NavLink>
             </li> */}
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <NavLink to="/calcul-salaire" className={getNavLinkClass}>
                  Salaire et Bulletin de Paie
               </NavLink>
-            </li>
+            </li> */}
             {/* <li className="nav-item">
               <NavLink to="/bulletin-paie" className={getNavLinkClass}>
                 Bulletin de Paie
