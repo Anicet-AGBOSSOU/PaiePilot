@@ -226,16 +226,79 @@ function DFisacal() {
           <h3>II - Versement Patronal sur Salaire (VPS)</h3>
         </div>
         <div className="card-body">
-          {/* Vous pourrez ajouter le contenu pour le Versement Patronal sur Salaire ici */}
-        </div>
+        <p><b>Article 191 :</b> Les personnes physiques ou morales qui paient des traitements,
+émoluments, salaires et rétributions accessoires, sont assujetties au paiement du versement
+patronal sur salaires.</p>
+        <p><b>Article 192 :</b> (Modifié par les lois de finances pour 2023 et 2024) Sont affranchis du
+        versement patronal sur salaires :</p>
+          <ol>
+            <li> les représentations diplomatiques et organisations internationales ;</li>
+            <li>les contribuables assujettis à la taxe professionnelle synthétique ;</li>
+            <li>les entreprises nouvelles régulièrement créées au titre de leur premier exercice,
+            pour l’emploi de salariés de nationalité béninoise ;</li>
+            <li> les personnes visées à l’article 191 ci-dessus pendant deux ans sur les rémunérations
+versées au titre du premier emploi du salarié de nationalité béninoise, à compter de la date
+d’embauche et à condition que le salarié soit déclaré à la caisse nationale de sécurité
+sociale ;</li>
+            <li> les personnes physiques ou morales promotrices d’activités sportives ou artistiques
+pour les rémunérations versées aux sportifs professionnels et aux artistes, dans la limite de
+quatre fois le salaire minimum interprofessionnel garanti ;</li>
+            <li> les personnes physiques ou morales pour les rémunérations versées aux stagiaires
+            dans les conditions prévues à l’article 120 du présent Code ;</li>
+            <li> es employeurs domestiques salariés ou non pour les rémunérations versées aux
+employés domestiques, tels que définis par les lois et règlements régissant la sécurité sociale
+en République du Bénin. Le bénéfice de l’exonération est subordonné à la déclaration et
+au paiement des cotisations à la caisse nationale de sécurité sociale.</li>
+      <p> Les dispositions du présent article ne s’appliquent pas aux associations et organismes
+sans but lucratif ne bénéficiant pas d’une exonération expresse.</p>
+      <p><b>Article 193 :</b> La base d’imposition du versement patronal sur salaires est identique à
+      celle de l’impôt sur les traitements et salaires.</p>
+      <p><b>Article 194 :</b> Le taux du versement patronal sur salaires est fixé à 4%.</p>
+      <p>Il est réduit à 2% en ce qui concerne les établissements d’enseignement privé.</p>
+      <p><b>Article 195 :</b> Le versement patronal sur salaires est liquidé sur la même déclaration que
+      l’impôt sur les traitements et salaires.</p>
+      <p>Il est payé à la recette des impôts compétente dans les conditions et délais précisés
+      aux articles 127 à 129 du présent code.</p>
+
+
+          </ol>        </div>
       </div>
+
+
+
+    <br />  <br /><br /><div className="p-4 bg-white shadow rounded">
+          <h5>Bienvenue dans l'espace de la sécurité sociale 👋</h5>
+          <p >
+          L’employeur est toute personne physique ou morale privée ou publique qui utilise un (01) ou plusieurs travailleurs contre rémunération. Dès l’ouverture de son entreprise ou à l’embauche du premier salarié, l’employeur doit matérialiser son existence par son immatriculation à la CNSS.
+A cet effet, il remplit trois (03) sortes d’imprimés que la Caisse met gratuitement à sa disposition:
+d’une demande d’immatriculation,
+d’un avis d’embauchage par le travailleur,
+d’un état de recensement de son personnel,
+de l’effectif du personnel, la date d’embauchage de chaque salarié et les salaires individuels des salariés doivent être mentionnés.
+Ces imprimés dûment remplis doivent être remis à la Caisse sans délai. Celle-ci vous notifie un numéro d’immatriculation que vous aurez à rappeler dans toutes vos correspondances.
+<br /><br />Lorsque vous engagez un travailleur déjà affilié à la caisse, remplissez un avis d’embauchage pour sa prise en charge. N’oubliez pas de mentionner son numéro d’affiliation. Si le travailleur que vous embauchez n’est pas encore affilié, vous adressez à la caisse un avis d’embauchage obligatoirement accompagné des pièces ci-après :
+une (01) photocopie légalisée de la carte d’identité
+une (01) photo d’identité
+une (01) copie conforme ou photocopie légalisée de l’extrait d’acte de naissance ou du jugement supplétif d’acte de naissance
+Dans tous les cas, le travailleur doit être déclaré à la caisse dès le premier jour de son recrutement.
+<br /><br />En cas de licenciement ou de résiliation du contrat d’un travailleur, l’employeur le signale à la CNSS par un avis de débauchage.
+<br /><br /> L’employeur est débiteur vis-à-vis de la Caisse de la cotisation totale y compris la part salariale qui est précomptée sur la rémunération du travailleur lors de chaque paie.
+<br /><br />L’employeur doit produire lors du versement des cotisations, les pièces justificatives suivantes :
+une déclaration de salaires et de cotisations
+une déclaration nominative du personnel à fournir trimestriellement par les employeurs utilisant au moins vingt (20) salariés
+<br /><br />L’employeur qui ne verse pas les cotisations dans le délai prescrit est passible d’une majoration de 1.50 % par mois ou fraction de mois de retard.
+Cette majoration de retard est due au même titre que la cotisation et payée dans les mêmes conditions.
+<br /><br />L’employeur qui a contrevenu aux prescriptions de la législation de la sécurité sociale peut être poursuivi par la Caisse. Tout employeur débiteur des cotisations peut se voir opposer des saisies-arrêts pratiquées à la requête de la Caisse.
+          </p>
+        </div>
+
 
       <div className="card mt-4">
         <div className="card-header bg-info text-white">
           <h3>III - Cotisation Ouvrière</h3>
         </div>
         <div className="card-body">
-          {/* Vous pourrez ajouter le contenu pour la Cotisation Ouvrière ici */}
+        <p><b>Les contributions sociales payées par l'employé: </b> <br /> <br />  L'employé cotise 3,6 % de son salaire mensuel brut pour la sécurité sociale.</p>
         </div>
       </div>
 
@@ -244,7 +307,27 @@ function DFisacal() {
           <h3>IV - Charge Patronale sur Salaire</h3>
         </div>
         <div className="card-body">
-          {/* Vous pourrez ajouter le contenu pour la Charge Patronale sur Salaire ici */}
+        <p><b> Les contributions sociales payées par l'employeur: </b> <br /> <br />L'employeur contribue à hauteur de 15,4 % (6,4 % pour les pensions et 9 % pour les prestations familiales) du salaire mensuel brut, plus 1 à 4 % d'assurance contre les accidents du travail et maladies professionnelles, selon le degré de risque de l'emploi.</p> <br /> 
+        <p><b>Qu’est-ce qu’un accident du travail ?</b></p>
+          <ol>
+            <li>C’est un accident survenu par le fait ou à l’occasion du travail, quelle qu’en soit la cause, à tout travailleur relevant du régime général de sécurité sociale.</li>
+            <li>C’est également un accident survenu au travailleur pendant un voyage dont les frais sont à la charge de l’employeur.</li>
+            <li>C’est enfin un accident survenu au travailleur pendant le trajet de sa résidence au lieu de travail et vice-versa ou pendant le trajet entre le lieu du travail et le lieu où il prend habituellement ses repas et vice-versa dans la mesure où le parcours n’a pas été interrompu ou détourné pour des motifs d’ordre personnel ou indépendant du travail</li> <br />
+          </ol>
+          <p><b>Quelles sont les prestations familiales ?</b></p>
+          <ol>
+          <li>les allocations prénatales</li>
+          <li>Les allocations familiales</li>
+          <li>Les prestations en nature relatives à l’action sanitaire et sociale</li>
+          <li>Les prestations en cas de congé de maternité</li>
+
+          </ol><p><b>Les conditions à remplir pour bénéficier de ces prestations</b></p>
+          <ol>
+          <li>Etre travailleur salarié(e) pendant au moins six (06) mois sans interruption chez un ou plusieurs employeurs</li>
+          <li>Avoir un ou plusieurs enfants à charge, soit son épouse en état de grossesse, soit être femme salariée en état de grossesse</li>
+          <li>Avoir constitué un dossier à la Caisse</li>
+          </ol>
+        
         </div>
       </div>
     </div>
