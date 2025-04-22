@@ -46,11 +46,13 @@ function Inscription() {
         contactPersonPhone: formData.telephonePersonneContact,
       };
 
-      const response = await axios.post('https://paie-pilot-2.onrender.com/api/auth/register', payload);
+      const response = await axios.post('https://api-paiepilot-2.onrender.com/api/auth/register', payload);
       alert('Inscription réussie !');
       navigate('/connexion');
     } catch (error) {
-      alert("Erreur lors de l'inscription : " + error.response?.data?.message || error.message);
+      alert("Erreur lors de l'inscription : " + (error.response?.data?.message || error.message));
+      console.log('Erreur complète reçue :', error.response);
+
     }
   };
 

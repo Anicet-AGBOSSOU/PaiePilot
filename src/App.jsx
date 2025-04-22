@@ -9,6 +9,7 @@ import Paie from "./Components/Paie";
 import Inscription from "./Components/Inscription";
 import Connexion from "./Components/Connexion";
 import NavBar from "./Components/partials/NavBar";
+import SideBar from "./Components/partials/SideBar";
 import Footer from "./Components/partials/Footer";
 import About from "./Components/About";
 import NotFound from "./Components/NotFound";

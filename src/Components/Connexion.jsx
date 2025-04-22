@@ -10,15 +10,19 @@ function Connexion() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://paie-pilot-2.onrender.com/api/auth/login', {
-        email,
+      const response = await axios.post('https://api-paiepilot-2.onrender.com/api/auth/login', {
+        companyEmail: email, // ✅ correspondance avec le backend
         password: motDePasse,
       });
       alert('Connexion réussie !');
-      // Rediriger selon le besoin
+
+      // Stocker le token si nécessaire
+      localStorage.setItem('token', response.data.token);
+
+      // Redirection
       navigate('/dashboard');
     } catch (error) {
-      alert("Erreur lors de la connexion : " + (error.response?.data?.message || error.message));
+      alert("Erreur lors de la connexion : " + (error.response?.data?.error || error.message));
     }
   };
 

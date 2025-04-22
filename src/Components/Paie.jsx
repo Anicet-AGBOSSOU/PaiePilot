@@ -145,7 +145,7 @@ const Paie = () => {
             <input className="form-control" type="number" placeholder="Montant des heures supplémentaires" value={heuresSup} onChange={e => setHeuresSup(e.target.value)} />
           </div>
           <div className="mb-2">
-            <label className="form-label">Primes :</label>
+            <label className="form-label">Primes et Indemnités :</label>
             <input className="form-control" type="number" placeholder="Primes" value={prime} onChange={e => setPrime(Number(e.target.value))} />
           </div>
           <div className="mb-2">
@@ -159,11 +159,11 @@ const Paie = () => {
         <div className="card-header bg-warning">Retenues</div>
         <div className="card-body">
           <div className="mb-2">
-            <label className="form-label">Retenue CNSS Ouvrière (3.6%) :</label>
+            <label className="form-label">Retenue Cotisation Ouvrière (CNSS) (3.6%) :</label>
             <input className="form-control" value={retenueCNSSOuvriere.toFixed(2)} readOnly />
           </div>
           <div className="mb-2">
-            <label className="form-label">Retenue CNSS Patronale ({cnssPatronal}%) :</label>
+            <label className="form-label">Retenue Cotisation Patronale (CNSS)({cnssPatronal}%) :</label>
             <input className="form-control" value={retenueCNSSPatronal.toFixed(2)} readOnly />
           </div>
           <div className="mb-2">
@@ -189,7 +189,7 @@ const Paie = () => {
       {/* Affichage conditionnel du résumé de la paie */}
       {afficherBulletin && (
         <div id="bulletin-paie" className="card mb-3">
-          <div className="card-header bg-success text-white">Résumé de la Paie</div>
+          <div className="card-header bg-success text-white">Bulletin de Paie</div>
           <div className="card-body">
             <div className="table-responsive">
               <table className="table table-bordered">
