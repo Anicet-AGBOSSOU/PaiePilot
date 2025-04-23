@@ -41,8 +41,16 @@ function Dashboard() {
           </p>
         </div>
       </div>
-    </div>
-  );
-}
+      </div>
+    );
+  }
+
+
+// const logout = () => {
+//   localStorage.removeItem('token');
+//   navigate('/connexion');
+// };
+
+    
 
 export default Dashboard;

@@ -25,10 +25,13 @@ function Setting() {
   };
 
   const handleLogout = () => {
-    alert('Déconnexion réussie.');
-    navigate('/connexion');
-  };
-
+  const confirmLogout = window.confirm('Voulez-vous vraiment vous déconnecter ?');
+      if (confirmLogout) {
+        localStorage.removeItem('token');
+        navigate('/connexion');
+      }
+    };
+    
   const handleDeleteAccount = () => {
     if (window.confirm('Êtes-vous sûr de vouloir supprimer votre compte ? Cette action est irréversible.')) {
       alert('Compte supprimé.');

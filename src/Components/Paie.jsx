@@ -20,7 +20,7 @@ const Paie = () => {
   const [avantages, setAvantages] = useState(0);
   const [avance, setAvance] = useState(0);
   const [cnssOuvriere, setCnssOuvriere] = useState(3.6);
-  const [cnssPatronal, setCnssPatronal] = useState(17.4); // Taux de cotisation patronale à 17,4%
+  // const [cnssPatronal, setCnssPatronal] = useState(17.4); // Taux de cotisation patronale à 17,4%
 
   // Calcul du salaire brut
   const salaireBrut = parseFloat(salaireBase) + parseFloat(prime) + parseFloat(heuresSup || 0) + parseFloat(avantages);
@@ -30,10 +30,11 @@ const Paie = () => {
 
   // Calcul des retenues
   const retenueCNSSOuvriere = (salaireBrut * cnssOuvriere) / 100;
-  const retenueCNSSPatronal = (salaireBrut * cnssPatronal) / 100;
+  // const retenueCNSSPatronal = (salaireBrut * cnssPatronal) / 100;
   const retenueITS = calculerITS(salaireBrutArrondi);
-  const retenueVPS = Math.ceil((salaireBrutArrondi * 0.04) / 1000) * 1000;
-  const totalRetenues = retenueCNSSOuvriere + retenueCNSSPatronal + retenueITS + retenueVPS + parseFloat(avance || 0);
+  // const retenueVPS = Math.ceil((salaireBrutArrondi * 0.04) / 1000) * 1000;
+  const totalRetenues = retenueCNSSOuvriere + retenueITS + parseFloat(avance || 0);
+  // + retenueCNSSPatronal + retenueVPS 
   const netAPayer = salaireBrut - totalRetenues;
 
   // Fonction pour calculer l'ITS
@@ -162,18 +163,18 @@ const Paie = () => {
             <label className="form-label">Retenue Cotisation Ouvrière (CNSS) (3.6%) :</label>
             <input className="form-control" value={retenueCNSSOuvriere.toFixed(2)} readOnly />
           </div>
-          <div className="mb-2">
+          {/* <div className="mb-2">
             <label className="form-label">Retenue Cotisation Patronale (CNSS)({cnssPatronal}%) :</label>
             <input className="form-control" value={retenueCNSSPatronal.toFixed(2)} readOnly />
-          </div>
+          </div> */}
           <div className="mb-2">
             <label className="form-label">Retenue ITS :</label>
             <input className="form-control" value={retenueITS.toFixed(2)} readOnly />
           </div>
-          <div className="mb-2">
+          {/* <div className="mb-2">
             <label className="form-label">Retenue VPS :</label>
             <input className="form-control" value={retenueVPS.toFixed(2)} readOnly />
-          </div>
+          </div> */}
           <div className="mb-2">
             <label className="form-label">Avance reçue :</label>
             <input className="form-control" type="number" value={avance} onChange={e => setAvance(Number(e.target.value))} />
