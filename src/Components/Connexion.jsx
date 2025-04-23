@@ -14,10 +14,14 @@ function Connexion() {
         companyEmail: email, // ✅ correspondance avec le backend
         password: motDePasse,
       });
-      alert('Connexion réussie !');
+      // alert('Connexion réussie !');
 
-      // Stocker le token si nécessaire
-      localStorage.setItem('token', response.data.token);
+      
+      const { token, nom } = response.data;
+
+      // Stockage du token et du nom dans localStorage
+      localStorage.setItem("token", token);
+      localStorage.setItem("nom", nom);  // Ajoute cette ligne
 
       // Redirection
       navigate('/dashboard');

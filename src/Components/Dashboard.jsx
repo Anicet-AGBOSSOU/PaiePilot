@@ -39,6 +39,7 @@ function Dashboard() {
             Utilisez le menu de gauche pour naviguer entre les différentes fonctionnalités. 
             Gérez facilement vos employés, salaires, déclarations fiscales et sociales, et bien plus encore.
           </p>
+         <br /> <p>Vous êtes connecté !</p>
         </div>
       </div>
       </div>
