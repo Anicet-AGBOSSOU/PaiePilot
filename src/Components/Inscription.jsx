@@ -84,7 +84,7 @@ function Inscription() {
                   <label className="form-label">Adresse</label>
                   <input type="text" className="form-control" name="adresse" value={formData.adresse} onChange={handleChange}  />
                 </div>
-                <div className="mb-3 col-md-6">
+                {/* <div className="mb-3 col-md-6">
                   <label className="form-label">Numéro d'immatriculation</label>
                   <input type="text" className="form-control" name="numeroImmatriculation" value={formData.numeroImmatriculation} onChange={handleChange} />
                 </div>
@@ -115,7 +115,7 @@ function Inscription() {
                 <div className="mb-3 col-md-6">
                   <label className="form-label">Téléphone de la personne de contact</label>
                   <input type="text" className="form-control" name="telephonePersonneContact" value={formData.telephonePersonneContact} onChange={handleChange}  />
-                </div>
+                </div> */}
               </div>
               <button type="submit" className="btn btn-success w-100">S'inscrire</button>
             </form>
