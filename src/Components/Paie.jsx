@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
@@ -13,28 +14,26 @@ const Paie = () => {
   const [ifu, setIfu] = useState('');
   const [bp, setBp] = useState('');
   const [periode, setPeriode] = useState('');
-
+  const [nombreEnfants, setNombreEnfants] = useState(0); // Nouveau champ
+  const [situationMatrimoniale, setSituationMatrimoniale] = useState(''); // Nouveau champ
+  const [dateDebutTravail, setDateDebutTravail] = useState(''); // Nouveau champ
   const [salaireBase, setSalaireBase] = useState(0);
   const [heuresSup, setHeuresSup] = useState('');
   const [prime, setPrime] = useState(0);
   const [avantages, setAvantages] = useState(0);
   const [avance, setAvance] = useState(0);
   const [cnssOuvriere, setCnssOuvriere] = useState(3.6);
-  // const [cnssPatronal, setCnssPatronal] = useState(17.4); // Taux de cotisation patronale à 17,4%
 
   // Calcul du salaire brut
   const salaireBrut = parseFloat(salaireBase) + parseFloat(prime) + parseFloat(heuresSup || 0) + parseFloat(avantages);
-  
+
   // Calcul du salaire brut arrondi au millier inférieur
   const salaireBrutArrondi = Math.floor(salaireBrut / 1000) * 1000;
 
   // Calcul des retenues
   const retenueCNSSOuvriere = (salaireBrut * cnssOuvriere) / 100;
-  // const retenueCNSSPatronal = (salaireBrut * cnssPatronal) / 100;
   const retenueITS = calculerITS(salaireBrutArrondi);
-  // const retenueVPS = Math.ceil((salaireBrutArrondi * 0.04) / 1000) * 1000;
   const totalRetenues = retenueCNSSOuvriere + retenueITS + parseFloat(avance || 0);
-  // + retenueCNSSPatronal + retenueVPS 
   const netAPayer = salaireBrut - totalRetenues;
 
   // Fonction pour calculer l'ITS
@@ -109,6 +108,24 @@ const Paie = () => {
             <label className="form-label">Matricule :</label>
             <input className="form-control" placeholder="Matricule" value={matricule} onChange={e => setMatricule(e.target.value)} />
           </div>
+          <div className="mb-2">
+            <label className="form-label">Nombre d'enfants :</label>
+            <input className="form-control" type="number" value={nombreEnfants} onChange={e => setNombreEnfants(Number(e.target.value))} />
+          </div>
+          <div className="mb-2">
+            <label className="form-label">Situation matrimoniale :</label>
+            <select className="form-control" value={situationMatrimoniale} onChange={e => setSituationMatrimoniale(e.target.value)}>
+              <option value="">Sélectionner</option>
+              <option value="Célibataire">Célibataire</option>
+              <option value="Marié">Marié</option>
+              <option value="Divorcé">Divorcé</option>
+              <option value="Veuf(ve)">Veuf(ve)</option>
+            </select>
+          </div>
+          <div className="mb-2">
+            <label className="form-label">Date de début de travail :</label>
+            <input className="form-control" type="date" value={dateDebutTravail} onChange={e => setDateDebutTravail(e.target.value)} />
+          </div>
         </div>
       </div>
 
@@ -131,124 +148,172 @@ const Paie = () => {
             <label className="form-label">Boîte Postale (BP) :</label>
             <input className="form-control" placeholder="BP" value={bp} onChange={e => setBp(e.target.value)} />
           </div>
+          <div className="mb-2">
+            <label className="form-label">Période :</label>
+            <input className="form-control" placeholder="Période (mois)" value={periode} onChange={e => setPeriode(e.target.value)} />
+          </div>
         </div>
       </div>
 
       <div className="card mb-3">
-        <div className="card-header bg-info text-white">Éléments de Salaire</div>
+        <div className="card-header bg-info text-white">Éléments de Calcul</div>
         <div className="card-body">
           <div className="mb-2">
             <label className="form-label">Salaire de base :</label>
-            <input className="form-control" type="number" placeholder="Salaire de base" value={salaireBase} onChange={e => setSalaireBase(Number(e.target.value))} />
+            <input className="form-control" type="number" value={salaireBase} onChange={e => setSalaireBase(Number(e.target.value))} />
           </div>
           <div className="mb-2">
             <label className="form-label">Heures supplémentaires :</label>
-            <input className="form-control" type="number" placeholder="Montant des heures supplémentaires" value={heuresSup} onChange={e => setHeuresSup(e.target.value)} />
+            <input className="form-control" type="number" value={heuresSup} onChange={e => setHeuresSup(e.target.value)} />
           </div>
           <div className="mb-2">
-            <label className="form-label">Primes et Indemnités :</label>
-            <input className="form-control" type="number" placeholder="Primes" value={prime} onChange={e => setPrime(Number(e.target.value))} />
+            <label className="form-label">Primes :</label>
+            <input className="form-control" type="number" value={prime} onChange={e => setPrime(Number(e.target.value))} />
           </div>
           <div className="mb-2">
-            <label className="form-label">Avantages en nature :</label>
-            <input className="form-control" type="number" placeholder="Avantages en nature" value={avantages} onChange={e => setAvantages(Number(e.target.value))} />
+            <label className="form-label">Avantages :</label>
+            <input className="form-control" type="number" value={avantages} onChange={e => setAvantages(Number(e.target.value))} />
           </div>
         </div>
       </div>
 
-      <div className="card mb-3">
-        <div className="card-header bg-warning">Retenues</div>
-        <div className="card-body">
-          <div className="mb-2">
-            <label className="form-label">Retenue Cotisation Ouvrière (CNSS) (3.6%) :</label>
-            <input className="form-control" value={retenueCNSSOuvriere.toFixed(2)} readOnly />
-          </div>
-          {/* <div className="mb-2">
-            <label className="form-label">Retenue Cotisation Patronale (CNSS)({cnssPatronal}%) :</label>
-            <input className="form-control" value={retenueCNSSPatronal.toFixed(2)} readOnly />
-          </div> */}
-          <div className="mb-2">
-            <label className="form-label">Retenue ITS :</label>
-            <input className="form-control" value={retenueITS.toFixed(2)} readOnly />
-          </div>
-          {/* <div className="mb-2">
-            <label className="form-label">Retenue VPS :</label>
-            <input className="form-control" value={retenueVPS.toFixed(2)} readOnly />
-          </div> */}
-          <div className="mb-2">
-            <label className="form-label">Avance reçue :</label>
-            <input className="form-control" type="number" value={avance} onChange={e => setAvance(Number(e.target.value))} />
-          </div>
-        </div>
+      <div>
+        <button className="btn btn-success mb-3" onClick={telechargerPDF}>Télécharger le Bulletin de Paie</button>
       </div>
 
-      <div className="mb-3">
-        <button className="btn btn-primary" onClick={telechargerPDF}>Télécharger en PDF</button>
-        <button className="btn btn-secondary ml-2" onClick={visualiserBulletin}>Visualiser</button>
-      </div>
+      <div>
+        <button className="btn btn-info mb-3" onClick={visualiserBulletin}>
+          {afficherBulletin ? 'Masquer' : 'Visualiser'} le bulletin de paie
+        </button>
 
-      {/* Affichage conditionnel du résumé de la paie */}
-      {afficherBulletin && (
-        <div id="bulletin-paie" className="card mb-3">
-          <div className="card-header bg-success text-white">Bulletin de Paie</div>
-          <div className="card-body">
-            <div className="table-responsive">
-              <table className="table table-bordered">
-                <thead className="table-dark">
-                  <tr>
-                    <th>Éléments</th>
-                    <th>Montant</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><strong>Employé</strong></td>
-                    <td>{nomEmploye}</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Poste</strong></td>
-                    <td>{poste}</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Matricule</strong></td>
-                    <td>{matricule}</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Employeur</strong></td>
-                    <td>{employeur}</td>
-                  </tr>
-                  <tr>
-                    <td><strong>RCCM</strong></td>
-                    <td>{rccm}</td>
-                  </tr>
-                  <tr>
-                    <td><strong>IFU</strong></td>
-                    <td>{ifu}</td>
-                  </tr>
-                  <tr>
-                    <td><strong>BP</strong></td>
-                    <td>{bp}</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Salaire Brut</strong></td>
-                    <td>{salaireBrut.toFixed(2)} XOF</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Total Retenues</strong></td>
-                    <td>{totalRetenues.toFixed(2)} XOF</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Net à Payer</strong></td>
-                    <td>{netAPayer.toFixed(2)} XOF</td>
-                  </tr>
-                </tbody>
-              </table>
+        {afficherBulletin && (
+          <div id="bulletin-paie" className="mt-4">
+            <h3 className="text-center mb-4">Bulletin de Paie pour {nomEmploye} - {periode}</h3>
+
+            <div className="row mb-4">
+              <div className="col-6">
+                <h5>Informations Employé</h5>
+                <table className="table table-striped table-bordered">
+                  <tbody>
+                    <tr>
+                      <td><strong>Nom :</strong></td>
+                      <td>{nomEmploye}</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Poste :</strong></td>
+                      <td>{poste}</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Matricule :</strong></td>
+                      <td>{matricule}</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Nombre d'enfants :</strong></td>
+                      <td>{nombreEnfants}</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Situation matrimoniale :</strong></td>
+                      <td>{situationMatrimoniale}</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Date de début de travail :</strong></td>
+                      <td>{dateDebutTravail}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div className="col-6">
+                <h5>Informations Employeur</h5>
+                <table className="table table-striped table-bordered">
+                  <tbody>
+                    <tr>
+                      <td><strong>Employeur :</strong></td>
+                      <td>{employeur}</td>
+                    </tr>
+                    <tr>
+                      <td><strong>RCCM :</strong></td>
+                      <td>{rccm}</td>
+                    </tr>
+                    <tr>
+                      <td><strong>IFU :</strong></td>
+                      <td>{ifu}</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Boîte Postale :</strong></td>
+                      <td>{bp}</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Période :</strong></td>
+                      <td>{periode}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
+
+            <h5 className="mb-3">Détails du Salaire</h5>
+            <table className="table table-striped table-bordered">
+              <tbody>
+                <tr>
+                  <td><strong>Salaire de base :</strong></td>
+                  <td>{salaireBase} FCFA</td>
+                </tr>
+                <tr>
+                  <td><strong>Heures Supplémentaires :</strong></td>
+                  <td>{heuresSup} FCFA</td>
+                </tr>
+                <tr>
+                  <td><strong>Primes :</strong></td>
+                  <td>{prime} FCFA</td>
+                </tr>
+                <tr>
+                  <td><strong>Avantages :</strong></td>
+                  <td>{avantages} FCFA</td>
+                </tr>
+                <tr>
+                  <td><strong>Total Salaire Brut :</strong></td>
+                  <td>{salaireBrut} FCFA</td>
+                </tr>
+                <tr>
+                  <td><strong>Salaire Brut Arrondi :</strong></td>
+                  <td>{salaireBrutArrondi} FCFA</td>
+                </tr>
+                <tr>
+                  <td><strong>Retenue CNSS :</strong></td>
+                  <td>{retenueCNSSOuvriere.toFixed(2)} FCFA</td>
+                </tr>
+                <tr>
+                  <td><strong>Retenue ITS :</strong></td>
+                  <td>{retenueITS.toFixed(2)} FCFA</td>
+                </tr>
+                <tr>
+                  <td><strong>Avance :</strong></td>
+                  <td>{avance} FCFA</td>
+                </tr>
+                <tr>
+                  <td><strong>Salaire Net à Payer :</strong></td>
+                  <td>{netAPayer.toFixed(2)} FCFA</td>
+                </tr>
+              </tbody>
+            </table>
+            <small className="text-muted fst-italic text-center mt-5">
+              Téléchargé sur le site de <span className="fw-bold text-primary">PaiePilot</span>
+             </small>
           </div>
-        </div>
-      )}
+          
+          
+        )}
+        <div className="text-center mt-5">
+              <small className="text-muted fst-italic">
+              Téléchargé sur le site de <span className="fw-bold text-primary">PaiePilot</span>
+             </small>
+       </div>
+
+      </div>
     </div>
   );
 };
 
 export default Paie;
+

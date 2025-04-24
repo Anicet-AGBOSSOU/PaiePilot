@@ -330,6 +330,11 @@ Cette majoration de retard est due au même titre que la cotisation et payée da
         
         </div>
       </div>
+      <div className="sources mt-5">
+        <p>
+          Les informations ci-dessus ont été prises dans le Code général des impôts 2025 et sur le site de la Caisse Nationale de Sécurité Sociale.
+        </p>
+      </div>
     </div>
   );
 }

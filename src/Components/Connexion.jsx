@@ -17,11 +17,22 @@ function Connexion() {
       // alert('Connexion réussie !');
 
       
-      const { token, nom } = response.data;
+      // const { token, } = response.data;
 
-      // Stockage du token et du nom dans localStorage
+
+      // // Stockage du token et du nom dans localStorage
+      // localStorage.setItem("token", token);
+      // localStorage.setItem("companyId", companyId);
+
+
+
+      const { token, companyId } = response.data;
+
+      // Stockage du token et companyId dans localStorage
       localStorage.setItem("token", token);
-      localStorage.setItem("nom", nom);  // Ajoute cette ligne
+      localStorage.setItem("companyId", companyId); // Stockage de l'ID de l'entreprise
+
+
 
       // Redirection
       navigate('/dashboard');
