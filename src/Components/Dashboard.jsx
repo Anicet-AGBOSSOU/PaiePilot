@@ -10,16 +10,16 @@ function Dashboard() {
         <h4 className="text-center mb-4">PaiePilot</h4>
         <ul className="nav flex-column">
           <li className="nav-item mb-2">
-            <Link to="/gestion-employes" className="nav-link text-white fw-bold">👥 Gestion des employés</Link>
+            <Link to="/gestion-employes" className="nav-link text-white fw-bold">👥 Gestion des Employés</Link>
           </li>
           <li className="nav-item mb-2">
-            <Link to="/declaration-fiscale" className="nav-link text-white fw-bold">📊 Déclarations fiscales & sociales</Link>
+            <Link to="/declaration-fiscale" className="nav-link text-white fw-bold">📊 Déclarations Fiscales & Sociales</Link>
           </li>
           {/* <li className="nav-item mb-2">
             <Link to="/bulletin-paie" className="nav-link text-white fw-bold">💰 Salaires</Link>
           </li> */}
           <li className="nav-item mb-2">
-            <Link to="/bulletin-paie" className="nav-link text-white fw-bold">📄 Salaires et Bulletins de paie</Link>
+            <Link to="/bulletin-paie" className="nav-link text-white fw-bold">📄 Salaires et Bulletin de paie</Link>
           </li>
           <li className="nav-item mb-2">
             <Link to="/about" className="nav-link text-white fw-bold">ℹ️ À propos</Link>

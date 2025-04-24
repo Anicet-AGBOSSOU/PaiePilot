@@ -167,10 +167,11 @@ function NavBar() {
                   </span>
                   <ul className="dropdown-menu">
                     <li><Link className="dropdown-item" to="/dashboard">Tableau de bord</Link></li>
-                    <li><Link className="dropdown-item" to="/gestion-employes">Employés</Link></li>
+                    <li><Link className="dropdown-item" to="/gestion-employes">Gestion des Employés</Link></li>
+                    <li><Link className="dropdown-item" to="/declaration-fiscale">Déclarations Fiscales et Sociales</Link></li>
                     <li><Link className="dropdown-item" to="/bulletin-paie">Salaires et Bulletin de Paie</Link></li>
                     {/* <li><Link className="dropdown-item" to="/bulletin-paie">Fiche de paie</Link></li> */}
-                    <li><Link className="dropdown-item" to="/declaration-fiscale">Déclaration fiscale et Sociale</Link></li>
+                    
                     {/* <li><Link className="dropdown-item" to="/declaration-sociale">Déclaration sociale</Link></li> */}
                   </ul>
                 </li>
