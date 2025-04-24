@@ -15,11 +15,11 @@ function Dashboard() {
           <li className="nav-item mb-2">
             <Link to="/declaration-fiscale" className="nav-link text-white fw-bold">📊 Déclarations fiscales & sociales</Link>
           </li>
-          <li className="nav-item mb-2">
+          {/* <li className="nav-item mb-2">
             <Link to="/bulletin-paie" className="nav-link text-white fw-bold">💰 Salaires</Link>
-          </li>
+          </li> */}
           <li className="nav-item mb-2">
-            <Link to="/bulletin-paie" className="nav-link text-white fw-bold">📄 Bulletins de paie</Link>
+            <Link to="/bulletin-paie" className="nav-link text-white fw-bold">📄 Salaires et Bulletins de paie</Link>
           </li>
           <li className="nav-item mb-2">
             <Link to="/about" className="nav-link text-white fw-bold">ℹ️ À propos</Link>

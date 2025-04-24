@@ -48,12 +48,12 @@ function Setting() {
     <div className="container py-5 position-relative">
       {/* Bouton Thème en haut à droite */}
       <div className="position-absolute top-0 end-0 mt-3 me-3">
-  <button
+  {/* <button
     className={`btn ${theme === 'light' ? 'btn-dark' : 'btn-light'}`}
     onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
   >
     {theme === 'light' ? 'Mode Sombre' : 'Mode Clair'}
-  </button>
+  </button> */}
 </div>
 
       <h2 className="text-center mb-4">Paramètres du compte</h2>

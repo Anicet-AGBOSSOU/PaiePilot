@@ -61,7 +61,7 @@
 
 
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Home from "./Components/Home";
 import Employe from "./Components/Employe";
@@ -81,14 +81,7 @@ import MentionsLegales from "./Components/MentionsLegales";
 import About from "./Components/About";
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (token) {
-      setIsAuthenticated(true); // Si un token est présent, l'utilisateur est authentifié
-    }
-  }, []);
+  const isAuthenticated = !!localStorage.getItem('token');
 
   return (
     <Router>
@@ -99,33 +92,15 @@ function App() {
             {/* Route publique */}
             <Route path="/" element={<Home />} />
 
-            {/* Routes privées (protéger par connexion) */}
-            <Route
-              path="/dashboard"
-              element={isAuthenticated ? <Dashboard /> : <Navigate to="/connexion" />}
-            />
-            <Route
-              path="/gestion-employes"
-              element={isAuthenticated ? <Employe /> : <Navigate to="/connexion" />}
-            />
-            <Route
-              path="/declaration-fiscale"
-              element={isAuthenticated ? <DFiscale /> : <Navigate to="/connexion" />}
-            />
-            <Route
-              path="/declaration-Sociale"
-              element={isAuthenticated ? <DSociale /> : <Navigate to="/connexion" />}
-            />
-            <Route
-              path="/calcul-salaire"
-              element={isAuthenticated ? <Salaire /> : <Navigate to="/connexion" />}
-            />
-            <Route
-              path="/bulletin-paie"
-              element={isAuthenticated ? <Paie /> : <Navigate to="/connexion" />}
-            />
+            {/* Routes privées */}
+            <Route path="/dashboard" element={isAuthenticated ? <Dashboard /> : <Navigate to="/connexion" />} />
+            <Route path="/gestion-employes" element={isAuthenticated ? <Employe /> : <Navigate to="/connexion" />} />
+            <Route path="/declaration-fiscale" element={isAuthenticated ? <DFiscale /> : <Navigate to="/connexion" />} />
+            <Route path="/declaration-Sociale" element={isAuthenticated ? <DSociale /> : <Navigate to="/connexion" />} />
+            <Route path="/calcul-salaire" element={isAuthenticated ? <Salaire /> : <Navigate to="/connexion" />} />
+            <Route path="/bulletin-paie" element={isAuthenticated ? <Paie /> : <Navigate to="/connexion" />} />
 
-            {/* Routes publiques (pas besoin de connexion) */}
+            {/* Routes publiques */}
             <Route path="/inscription" element={<Inscription />} />
             <Route path="/connexion" element={<Connexion />} />
             <Route path="/about" element={<About />} />
@@ -144,3 +119,4 @@ function App() {
 }
 
 export default App;
+

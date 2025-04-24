@@ -163,6 +163,9 @@ function Inscription() {
     telephonePersonneContact: '',
   });
 
+  const [message, setMessage] = useState({ type: '', text: '' });
+  const [loading, setLoading] = useState(false);
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -172,6 +175,9 @@ function Inscription() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+    setMessage({ type: '', text: '' });
+
     try {
       const payload = {
         companyName: formData.nomEntreprise,
@@ -190,13 +196,23 @@ function Inscription() {
       };
 
       const response = await axios.post('https://api-paiepilot-2.onrender.com/api/auth/register', payload);
-      const { token, nom } = response.data;
+      const { token, companyId } = response.data;
       localStorage.setItem('token', token);
-      localStorage.setItem('nomUtilisateur', nom);
+      localStorage.setItem("companyId", companyId); // Stockage de l'ID de l'entreprise
 
-      navigate('/dashboard');
+
+      // setMessage({ type: 'success', text: 'Inscription réussie ! Redirection...' });
+
+      setTimeout(() => {
+        navigate('/dashboard');
+      }, 1500);
     } catch (error) {
-      alert("Erreur lors de l'inscription : " + (error.response?.data?.message || error.message));
+      setMessage({
+        type: 'danger',
+        text: "Erreur lors de l'inscription : " + (error.response?.data?.message || error.message),
+      });
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -206,6 +222,14 @@ function Inscription() {
         <div className="col-lg-8">
           <div className="p-4 shadow rounded bg-white">
             <h3 className="text-center mb-4">Inscription</h3>
+
+            {message.text && (
+              <div className={`alert alert-${message.type} alert-dismissible fade show`} role="alert">
+                {message.text}
+                <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Fermer"></button>
+              </div>
+            )}
+
             <form onSubmit={handleSubmit}>
               <div className="row">
                 <div className="mb-3 col-md-6">
@@ -229,7 +253,9 @@ function Inscription() {
                   <input type="text" className="form-control" name="adresse" value={formData.adresse} onChange={handleChange} />
                 </div>
               </div>
-              <button type="submit" className="btn btn-success w-100">S'inscrire</button>
+              <button type="submit" className="btn btn-success w-100" disabled={loading}>
+                {loading ? 'Traitement...' : "S'inscrire"}
+              </button>
             </form>
           </div>
         </div>
@@ -239,3 +265,4 @@ function Inscription() {
 }
 
 export default Inscription;
+

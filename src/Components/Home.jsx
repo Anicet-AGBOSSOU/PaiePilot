@@ -9,10 +9,10 @@ function Home() {
       <header className="text-center mb-5">
         <h1 className="text-primary">Bienvenue sur PaiePilot</h1>
         <p className="lead">La solution de gestion de paie adaptée aux PME et PMI au Bénin</p>
-        <div className="mt-4">
+        {/* <div className="mt-4">
           <Link to="/inscription" className="btn btn-primary me-3">S'inscrire</Link>
           <Link to="/connexion" className="btn btn-outline-primary">Se connecter</Link>
-        </div>
+        </div> */}
       </header>
 
       <section className="mb-5">
