@@ -16,16 +16,6 @@ function Connexion() {
       });
       // alert('Connexion réussie !');
 
-      
-      // const { token, } = response.data;
-
-
-      // // Stockage du token et du nom dans localStorage
-      // localStorage.setItem("token", token);
-      // localStorage.setItem("companyId", companyId);
-
-
-
       const { token, companyId } = response.data;
 
       // Stockage du token et companyId dans localStorage
