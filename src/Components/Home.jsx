@@ -20,7 +20,7 @@ function Home() {
         <div className="row g-4">
           <div className="col-md-6">
             <div className="p-4 shadow rounded bg-white h-100">
-              <h5 className="text-primary">ITS (Impôt sur Traitement et Salaire)</h5>
+              <h5 className="text-primary">ITS (Impôt sur les Traitements et Salaires)</h5>
               <p>L’ITS est un impôt prélevé sur les salaires versés aux employés. Il est retenu à la source par l’employeur.</p>
             </div>
           </div>
