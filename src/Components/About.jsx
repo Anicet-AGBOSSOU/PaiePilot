@@ -27,8 +27,9 @@ function About() {
 
             <h4 className="text-primary mt-4">Fonctionnalités clés</h4>
             <ul>
-              <li>Calcul automatique des salaires nets et des charges sociales</li>
-              <li>Génération des bulletins de paie et déclarations fiscales (ITS, VPS, CO, CPS)</li>
+            <li>Gestion des Employés</li>
+            <li>Calcul automatique des salaires nets et des charges sociales</li>
+            <li>Génération des bulletins de paie et déclarations fiscales (ITS, VPS, CO, CPS)</li>
               <li>Archivage sécurisé des documents</li>
               <li>Tableau de bord clair pour le suivi des charges et salaires</li>
             </ul>
