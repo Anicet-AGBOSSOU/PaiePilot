@@ -16,7 +16,7 @@ function Home() {
       </header>
 
       <section className="mb-5">
-        <h2 className="text-center text-secondary mb-4">À propos de la fiscalité béninoise</h2>
+        <h2 className="text-center text-secondary mb-4">À propos de la Fiscalité Béninoise dans la Gestion de Paie</h2>
         <div className="row g-4">
           <div className="col-md-6">
             <div className="p-4 shadow rounded bg-white h-100">
