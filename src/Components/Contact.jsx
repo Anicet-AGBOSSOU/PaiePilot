@@ -62,10 +62,10 @@ function Contact() {
     e.preventDefault();
 
     emailjs.sendForm(
-      'service_smgosys',     // Remplace par ton Service ID
-      'template_8ugq29r',    // Remplace par ton Template ID
+      'service_smgosys',     // Service ID
+      'template_8ugq29r',    // Template ID
       formRef.current,
-      'SiaBog7NGWnRzVyyF' // Clé publique (ex: '')
+      'SiaBog7NGWnRzVyyF' // Clé publique
     )
     .then(() => {
       setFormSubmitted(true);
